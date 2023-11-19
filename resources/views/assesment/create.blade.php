@@ -1,8 +1,7 @@
 @extends('layouts.welcome')
 
 @section('content')
-
-    <div class="container-xxl position-relative bg-white d-flex p-0">
+    <div class="position-relative bg-white d-flex p-0" style="height: 100vh;">
         {{-- <!-- Spinner Start -->
         <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -13,77 +12,131 @@
 
 
         <!-- Content Start -->
-        <div class="container-fluid pt-4 px-4">
-            <div class="row g-4">
-                <div class="col-sm-12 col-xl-12">
-                    <div class="bg-light rounded h-100 p-4">
-                        <h6 class="mb-4">Basic Form</h6>
-                        <form>
-                            <!-- 2 column grid layout with text inputs for the first and last names -->
-                            <div class="row mb-4">
-                              <div class="col">
-                                <div class="form-outline">
-                                  <label class="form-label" for="form6Example1">First name</label>
-                                  <input type="text" id="form6Example1" class="form-control" />
-                                </div>
-                              </div>
-                              <div class="col">
-                                <div class="form-outline">
-                                  <label class="form-label" for="form6Example2">Last name</label>
-                                  <input type="text" id="form6Example2" class="form-control" />
-                                </div>
-                              </div>
-                            </div>
-                          
-                            <!-- Text input -->
-                            <div class="form-outline mb-4">
-                              <label class="form-label" for="form6Example3">Company name</label>
-                              <input type="text" id="form6Example3" class="form-control" />
-                            </div>
-                          
-                            <!-- Text input -->
-                            <div class="form-outline mb-4">
-                              <label class="form-label" for="form6Example4">Address</label>
-                              <input type="text" id="form6Example4" class="form-control" />
-                            </div>
-                          
-                            <!-- Email input -->
-                            <div class="form-outline mb-4">
-                              <label class="form-label" for="form6Example5">Email</label>
-                              <input type="email" id="form6Example5" class="form-control" />
-                            </div>
-                          
-                            <!-- Number input -->
-                            <div class="form-outline mb-4">
-                              <label class="form-label" for="form6Example6">Phone</label>
-                              <input type="number" id="form6Example6" class="form-control" />
-                            </div>
-                          
-                            <!-- Message input -->
-                            <div class="form-outline mb-4">
-                              <label class="form-label" for="form6Example7">Additional information</label>
-                              <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-                            </div>
-                          
-                            <!-- Checkbox -->
-                            {{-- <div class="form-check d-flex justify-content-center mb-4">
-                              <input class="form-check-input me-2" type="checkbox" value="" id="form6Example8" checked />
-                              <label class="form-check-label" for="form6Example8"> Create an account? </label>
-                            </div> --}}
-                          
-                            <!-- Submit button -->
-                            <button type="submit" class="btn btn-primary btn-block mb-4 float-end">Place order</button>
-                          </form>
-                    </div>
+        <div class="container-fluid pt-4 px-4" style="height: 100%; width: 100%">
+            <div class="swiper mySwiper" style="position: relative; overflow-y: scroll; height: 100%; width: 100%">
+                <div class="swiper-wrapper">
+                    {!! Form::open([
+                        'route' => 'asesmen.store',
+                        'method' => 'POST',
+                        'enctype' => 'multipart/form-data',
+                    ]) !!}
+
+                    @csrf
+                    <input type="text" name="test">
+                    <button type="submit">Submit</button>
+                    {!! Form::close() !!}
+
+                    @include('components.form-asesmen-ppks')
+                    @include('components.form-asesmen-biodata-ppks-page-1')
+                    @include('components.form-asesmen-biodata-ppks-page-2')
+                    @include('components.form-asesmen-kepemilikan-adminduk')
+                    @include('components.form-asesmen-riwayat-bantuan')
+                    @include('components.form-asesmen-kondisi-biologis')
+                    @include('components.form-asesmen-kondisi-sosial')
+                    @include('components.form-asesmen-aspek-akademis')
+                    @include('components.form-asesmen-kondisi-ekonomi-page-1')
+                    @include('components.form-asesmen-kondisi-ekonomi-page-2')
+                    @include('components.form-asesmen-kondisi-ekonomi-page-3')
+                    @include('components.form-asesmen-data-keluarga-page-1')
+                    @include('components.form-asesmen-data-keluarga-page-2')
+                    @include('components.form-asesmen-diagnosa-layanan-intervensi')
                 </div>
-                
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
         <!-- Content End -->
+        <!-- EXTERNAL LIBRARY -->
+        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+
+        <script src="{{ asset('js/form-temp-database.js') }}"></script>
+
+        <script>
+            var swiper = new Swiper(".mySwiper", {
+                pagination: {
+                    el: ".swiper-pagination",
+                    type: "progressbar",
+                },
+                navigation: {
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                },
+            });
+        </script>
+
+        <script>
+            const tempDatabase = new FormTempDatabase;
+
+            let anakKe = 1
+
+            function handleTambahAnak() {
+                const tempData = tempDatabase.getTempData;
+                if (anakKe >= tempData.asesmen_biodata_ppks.jumlah_anak) {
+                    window.alert(`Jumlah anak hanya ${tempData.asesmen_biodata_ppks.jumlah_anak}`)
+                } else {
+                    anakKe++;
 
 
-        <!-- Back to Top -->
-        {{-- <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a> --}}
-    </div>
+                    const node = document.createElement("div");
 
-@endsection
+                    node.innerHTML = `
+               <div>
+                       <p style="font-weight: bold">Identitas Anak Ke ${anakKe}</p>
+                       <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                           <label class="form-label" for="anak_ke_${anakKe}">Nama</label>
+                           <input type="text" id="anak_ke_${anakKe}" name="anak_ke_${anakKe}" class="form-control" />
+                       </div>
+                       <button type="button"
+                           onclick="tempDatabase.handleAsesmenDetailDataKeluargaAnakN('anak_ke_n', getValueByName('anak_ke_${anakKe}'))">Simpan
+                           Data Anak ke-${anakKe}</button>
+                   </div>
+               `;
+
+                    document.getElementById("form-anak").appendChild(node);
+                }
+            }
+
+            function getValueByName(name) {
+                const value = document.getElementsByName(name)[0].value;
+                //  console.info(value);
+                return value;
+            }
+
+
+            // document.getElementById("submit-btn").addEventListener("click", function(event) {
+            //     //  console.info("CLICKED")
+            //     event.preventDefault()
+
+            //     const fotoPPKS = $('#foto_ppks')[0].files
+            //     const fotoKTP = $('#foto_ktp_ppks')[0].files
+            //     const fotoRumahTampakDepan = $('#foto_rumah_tampak_depan')[0].files
+            //     const fotoRumahTampakDalam = $('#foto_rumah_tampak_dalam')[0].files
+            //     const fotoHomeVisit = $('#foto_home_visit')[0].files
+
+            //     tempDatabase.handleAsesmenDiagnosaLayananIntervensi('foto_ppks', fotoPPKS);
+
+            //     const tempData = tempDatabase.getTempData;
+            //     var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+            //     console.info(CSRF_TOKEN)
+            //     console.info(tempData)
+
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: "/api/form",
+            //         data: JSON.stringify(tempData),
+            //         dataType: 'JSON',
+            //         contentType: false,
+            //         processData: false,
+            //         success: function(data) {
+            //             console.info(data)
+            //             window.alert('Data berhasil disimpan!');
+            //         },
+            //         error: function(error) {
+            //             console.info(error)
+            //             window.alert(error.toString());
+            //         }
+            //     });
+            // });
+        </script>
+    @endsection
