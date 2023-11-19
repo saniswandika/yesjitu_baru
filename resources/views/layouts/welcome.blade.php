@@ -29,6 +29,7 @@
 
     <!-- EXTERNAL LIBRARY -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <style>
         .swiper {
             width: 100%;
@@ -215,27 +216,16 @@
                                     style="width: 40px; height: 40px;">
                                 <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
                             </a>
-                            <div
-                                class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                                <a href="#" class="dropdown-item">My Profile</a>
-                                <a href="#" class="dropdown-item">Settings</a>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-
-                                    {{-- <a href="#" class="dropdown-item">Log Out</a> --}}
-                            </div>
+                        
                         </div>
                     </div>
+                </form>
             </nav>
+            
             <main class="">
                 @yield('content')
             </main>
+           
             <!-- Navbar End -->
         </div>
         <!-- Content End -->

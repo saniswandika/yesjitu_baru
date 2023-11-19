@@ -15,16 +15,17 @@
         <div class="container-fluid pt-4 px-4" style="height: 100%; width: 100%">
             <div class="swiper mySwiper" style="position: relative; overflow-y: scroll; height: 100%; width: 100%">
                 <div class="swiper-wrapper">
-                    {!! Form::open([
+                    {{-- {!! Form::open([
                         'route' => 'asesmen.store',
                         'method' => 'POST',
                         'enctype' => 'multipart/form-data',
-                    ]) !!}
-
-                    @csrf
-                    <input type="text" name="test">
-                    <button type="submit">Submit</button>
-                    {!! Form::close() !!}
+                    ]) !!} --}}
+                    <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{ route('asesmen.store') }}">
+                        @csrf
+                        <input type="text" name="test">
+                        <button type="submit">Submit</button>
+                    </form>
+                    
 
                     @include('components.form-asesmen-ppks')
                     @include('components.form-asesmen-biodata-ppks-page-1')
