@@ -139,7 +139,7 @@
                 <a href="#" class="sidebar-toggler flex-shrink-0">
                     <i class="fa fa-bars"></i>
                 </a>
-                <form class="d-none d-md-flex ms-4">
+                {{-- <form class="d-none d-md-flex ms-4"> --}}
                     <input class="form-control border-0" type="search" placeholder="Search">
 
                     <div class="navbar-nav align-items-center ms-auto">
@@ -216,10 +216,21 @@
                                     style="width: 40px; height: 40px;">
                                 <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
                             </a>
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
+                                    </a>
+
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </div>
                         
                         </div>
                     </div>
-                </form>
+                {{-- </form> --}}
             </nav>
             
             <main class="">
