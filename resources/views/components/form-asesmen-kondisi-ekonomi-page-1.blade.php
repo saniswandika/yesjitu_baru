@@ -86,6 +86,12 @@
             </div>
 
             <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                <label class="form-label" for="kondisi_atap">Kondisi Atap</label>
+                <input type="text" id="kondisi_atap" name="kondisi_atap" class="form-control"
+                    oninput="tempDatabase.handleAsesmenKondisiEkonomi('kondisi_atap', this.value)" />
+            </div>
+
+            <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
                 <label class="form-label" for="fasilitas_mck">Fasilitas Jamban/MCK</label>
                 <input type="text" id="fasilitas_mck" name="fasilitas_mck" class="form-control"
                     oninput="tempDatabase.handleAsesmenKondisiEkonomi('fasilitas_mck', this.value)" />

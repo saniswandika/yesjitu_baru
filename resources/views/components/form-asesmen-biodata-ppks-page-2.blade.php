@@ -67,15 +67,15 @@
             </div>
 
             <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                <label class="form-label" for="kota_domisili">kota_domisili</label>
+                <label class="form-label" for="kota_domisili">Kota Domisili</label>
                 <input type="text" id="Kota Domisili" name="kota_domisili" class="form-control"
                     oninput="tempDatabase.handleAsesmenBiodataPPKS('kota_domisili', this.value)" />
             </div>
 
             <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                <label class="form-label" for="provinsi_ktp">Provinsi KTP</label>
-                <input type="text" id="provinsi_ktp" name="provinsi_ktp" class="form-control"
-                    oninput="tempDatabase.handleAsesmenBiodataPPKS('provinsi_ktp', this.value)" />
+                <label class="form-label" for="provinsi_domisili">Provinsi Domisili</label>
+                <input type="text" id="provinsi_domisili" name="provinsi_domisili" class="form-control"
+                    oninput="tempDatabase.handleAsesmenBiodataPPKS('provinsi_domisili', this.value)" />
             </div>
 
             <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">

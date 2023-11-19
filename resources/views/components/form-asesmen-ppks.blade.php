@@ -5,43 +5,49 @@
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <!-- Text input -->
         <div class="row">
+            <form name="add-blog-post-form" id="asesmen-form" method="post" action="{{ route('asesmen.store') }}"
+                enctype="multipart/form-data">
+                @csrf
+                <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                    <label class="form-label" for="pekerja_sosial">Pekerja Sosial</label>
+                    <input type="text" id="pekerja_sosial" name="pekerja_sosial" class="form-control"
+                        oninput="tempDatabase.handleAsesmenPPKS('pekerja_sosial', this.value)" />
+                </div>
 
-            <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                <label class="form-label" for="pekerja_sosial">Pekerja Sosial</label>
-                <input type="text" id="pekerja_sosial" name="pekerja_sosial" class="form-control"
-                    oninput="tempDatabase.handleAsesmenPPKS('pekerja_sosial', this.value)" />
-            </div>
-
-            <div style="text-align:
+                <div style="text-align:
                         left"
-                class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                <label class="form-label" for="jenis_ppks_utama">Jenis PPKS Utama</label>
-                <input type="text" id="jenis_ppks_utama" name="jenis_ppks_utama" class="form-control"
-                    oninput="tempDatabase.handleAsesmenPPKS('jenis_ppks_utama', this.value)" />
-            </div>
+                    class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                    <label class="form-label" for="jenis_ppks_utama">Jenis PPKS Utama</label>
+                    <input type="text" id="jenis_ppks_utama" name="jenis_ppks_utama" class="form-control"
+                        oninput="tempDatabase.handleAsesmenPPKS('jenis_ppks_utama', this.value)" />
+                </div>
 
-            <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                <label class="form-label" for="status_ppks">Status PPKS</label>
-                <input type="text" id="status_ppks" name="status_ppks" class="form-control"
-                    oninput="tempDatabase.handleAsesmenPPKS('status_ppks', this.value)" />
-            </div>
+                <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                    <label class="form-label" for="status_ppks">Status PPKS</label>
+                    <input type="text" id="status_ppks" name="status_ppks" class="form-control"
+                        oninput="tempDatabase.handleAsesmenPPKS('status_ppks', this.value)" />
+                </div>
 
-            <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                <label class="form-label" for="tanggal_asesmen">Tanggal Asesmen</label>
-                <input type="date" id="tanggal_asesmen" name="tanggal_asesmen" class="form-control"
-                    oninput="tempDatabase.handleAsesmenPPKS('tanggal_asesmen', this.value)" />
-            </div>
+                <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                    <label class="form-label" for="jenis_ppks_lainnya">Jenis PPKS
+                        Lainnya</label>
+                    <input type="text" id="jenis_ppks_lainnya" name="jenis_ppks_lainnya" class="form-control"
+                        oninput="tempDatabase.handleAsesmenPPKS('jenis_ppks_lainnya', this.value)" />
+                </div>
 
-            <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                <label class="form-label" for="jenis_ppks_lainnya">Jenis PPKS
-                    Lainnya</label>
-                <input type="text" id="jenis_ppks_lainnya" name="jenis_ppks_lainnya" class="form-control"
-                    oninput="tempDatabase.handleAsesmenPPKS('jenis_ppks_lainnya', this.value)" />
-            </div>
+                <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                    <label class="form-label" for="tanggal_asesmen">Tanggal Asesmen</label>
+                    <input type="date" id="tanggal_asesmen" name="tanggal_asesmen" class="form-control"
+                        oninput="tempDatabase.handleAsesmenPPKS('tanggal_asesmen', this.value)" />
+                </div>
 
+                <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                    <label class="form-label" for="lokasi_asesmen">Lokasi Asesmen</label>
+                    <input type="text" id="lokasi_asesmen" name="lokasi_asesmen" class="form-control"
+                        oninput="tempDatabase.handleAsesmenPPKS('lokasi_asesmen', this.value)" />
+                </div>
 
-
-            {{-- <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                {{-- <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
                     <label class="form-label" for="form6Example7">Additional information</label>
                     <textarea class="form-control" id="form6Example7" rows="4"></textarea>
                 </div> --}}

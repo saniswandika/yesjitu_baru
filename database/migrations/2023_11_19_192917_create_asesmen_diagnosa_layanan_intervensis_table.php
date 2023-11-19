@@ -11,15 +11,14 @@ return new class extends Migration {
    public function up(): void
    {
       Schema::create('asesmen_diagnosa_layanan_intervensis', function (Blueprint $table) {
-         $table->id();
-         $table->string("id_asesmen_data_keluarga");
+         $table->id("id_asesmen_data_keluarga");
          $table->string("id_asesmen_ppks");
-         $table->string("permasalahan_saat_ini");
+         $table->text("permasalahan_saat_ini");
          $table->string("kebutuhan_ppks");
-         $table->string("bentuk_rehabsos");
-         $table->string("opd_terkait_dilibatkan");
-         $table->string("opd_terkait_program");
-         $table->string("program_dinsos");
+         $table->text("bentuk_rehabsos");
+         $table->text("opd_terkait_dilibatkan");
+         $table->text("opd_terkait_program");
+         $table->text("program_dinsos");
          $table->string("foto_ppks");
          $table->string("foto_ktp_ppks");
          $table->string("foto_rumah_tampak_depan");

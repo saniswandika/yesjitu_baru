@@ -40,6 +40,12 @@
             </div>
 
             <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                <label class="form-label" for="tanggal_lahir">Tanggal Lahir</label>
+                <input type="date" id="tanggal_lahir" name="tanggal_lahir" class="form-control"
+                    oninput="tempDatabase.handleAsesmenBiodataPPKS('tanggal_lahir', this.value)" />
+            </div>
+
+            <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
                 <label class="form-label" for="shdk_dalam_kk">SHDK Dalam KK</label>
                 <input type="text" id="shdk_dalam_kk" name="shdk_dalam_kk" class="form-control"
                     oninput="tempDatabase.handleAsesmenBiodataPPKS('shdk_dalam_kk', this.value)" />

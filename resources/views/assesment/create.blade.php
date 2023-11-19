@@ -20,13 +20,9 @@
                         'method' => 'POST',
                         'enctype' => 'multipart/form-data',
                     ]) !!} --}}
-                    <form name="add-blog-post-form" id="add-blog-post-form" method="post" action="{{ route('asesmen.store') }}">
-                        @csrf
-                        <input type="text" name="test">
-                        <button type="submit">Submit</button>
-                    </form>
-                    
-
+                    {{-- <form name="add-blog-post-form" id="add-blog-post-form" method="post"
+                        action="{{ route('asesmen.store') }}">
+                        @csrf --}}
                     @include('components.form-asesmen-ppks')
                     @include('components.form-asesmen-biodata-ppks-page-1')
                     @include('components.form-asesmen-biodata-ppks-page-2')
@@ -41,6 +37,8 @@
                     @include('components.form-asesmen-data-keluarga-page-1')
                     @include('components.form-asesmen-data-keluarga-page-2')
                     @include('components.form-asesmen-diagnosa-layanan-intervensi')
+                    {{-- </form> --}}
+
                 </div>
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
@@ -49,9 +47,10 @@
         </div>
         <!-- Content End -->
         <!-- EXTERNAL LIBRARY -->
-        <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
         <script src="{{ asset('js/form-temp-database.js') }}"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
         <script>
             var swiper = new Swiper(".mySwiper", {
@@ -64,6 +63,96 @@
                     prevEl: ".swiper-button-prev",
                 },
             });
+        </script>
+
+        <script>
+            // $("#asesmen-form").submit(function(e) {
+            //     e.preventDefault();
+
+            //     const fotoPPKS = $('#foto_ppks')[0].files;
+            //     const fotoKTPPPKS = $('#foto_ktp_ppks')[0].files;
+            //     const fotoRumahTampakDepan = $('#foto_rumah_tampak_depan')[0].files;
+            //     const fotoRumahTampakDalam = $('#foto_rumah_tampak_dalam')[0].files;
+            //     const fotoHomeVisit = $('#foto_home_visit')[0].files;
+
+            //     var form = new FormData();
+            //     form.append('foto_ppks', fotoPPKS[0]);
+            //     form.append('foto_ktp_ppks', fotoKTPPPKS[0]);
+            //     form.append('foto_rumah_tampak_depan', fotoRumahTampakDepan[0]);
+            //     form.append('foto_rumah_tampak_dalam', fotoRumahTampakDalam[0]);
+            //     form.append('foto_home_visit', fotoHomeVisit[0]);
+            //     //  $("#add_employee_btn").text('Adding...');
+            //     $.ajax({
+            //         url: '{{ route('asesmen.store') }}',
+            //         method: 'post',
+            //         data: form,
+            //         cache: false,
+            //         contentType: false,
+            //         processData: false,
+            //         dataType: 'json',
+            //         success: function(response) {
+            //             console.info(response)
+            //             if (response.status == 200) {
+            //                 Swal.fire(
+            //                     'Added!',
+            //                     'Employee Added Successfully!',
+            //                     'success'
+            //                 )
+            //                 fetchAllEmployees();
+            //             }
+            //             $("#add_employee_btn").text('Add Employee');
+            //             $("#add_employee_form")[0].reset();
+            //             $("#addEmployeeModal").modal('hide');
+            //         }
+            //     });
+            // });
+        </script>
+
+
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+            });
+
+            // document.getElementById("submit-btn").addEventListener("click", function(event) {
+            //     console.info("CLICKED")
+            //     event.preventDefault()
+
+            //     const fotoPPKS = $('#foto_ppks')[0].files
+            //     const fotoKTP = $('#foto_ktp_ppks')[0].files
+            //     const fotoRumahTampakDepan = $('#foto_rumah_tampak_depan')[0].files
+            //     const fotoRumahTampakDalam = $('#foto_rumah_tampak_dalam')[0].files
+            //     const fotoHomeVisit = $('#foto_home_visit')[0].files
+
+            //     tempDatabase.handleAsesmenDiagnosaLayananIntervensi('foto_ppks', fotoPPKS);
+
+            //     const tempData = tempDatabase.getTempData;
+            //     //  var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
+            //     //  console.info(CSRF_TOKEN)
+            //     console.info(tempData)
+
+            //     $.ajax({
+            //         type: 'POST',
+            //         url: "{{ route('asesmen.store') }}",
+            //         data: JSON.stringify(tempData),
+            //         dataType: 'JSON',
+            //         contentType: false,
+            //         processData: false,
+            //         dataType: 'json',
+            //         success: function(data) {
+            //             console.info(data)
+            //             window.alert('Data berhasil disimpan!');
+            //         },
+            //         error: function(error) {
+            //             console.info(error)
+            //             window.alert(error.toString());
+            //         }
+            //     });
+            // });
         </script>
 
         <script>
@@ -103,41 +192,5 @@
                 //  console.info(value);
                 return value;
             }
-
-
-            // document.getElementById("submit-btn").addEventListener("click", function(event) {
-            //     //  console.info("CLICKED")
-            //     event.preventDefault()
-
-            //     const fotoPPKS = $('#foto_ppks')[0].files
-            //     const fotoKTP = $('#foto_ktp_ppks')[0].files
-            //     const fotoRumahTampakDepan = $('#foto_rumah_tampak_depan')[0].files
-            //     const fotoRumahTampakDalam = $('#foto_rumah_tampak_dalam')[0].files
-            //     const fotoHomeVisit = $('#foto_home_visit')[0].files
-
-            //     tempDatabase.handleAsesmenDiagnosaLayananIntervensi('foto_ppks', fotoPPKS);
-
-            //     const tempData = tempDatabase.getTempData;
-            //     var CSRF_TOKEN = document.querySelector('meta[name="csrf-token"]').getAttribute("content");
-            //     console.info(CSRF_TOKEN)
-            //     console.info(tempData)
-
-            //     $.ajax({
-            //         type: 'POST',
-            //         url: "/api/form",
-            //         data: JSON.stringify(tempData),
-            //         dataType: 'JSON',
-            //         contentType: false,
-            //         processData: false,
-            //         success: function(data) {
-            //             console.info(data)
-            //             window.alert('Data berhasil disimpan!');
-            //         },
-            //         error: function(error) {
-            //             console.info(error)
-            //             window.alert(error.toString());
-            //         }
-            //     });
-            // });
         </script>
     @endsection

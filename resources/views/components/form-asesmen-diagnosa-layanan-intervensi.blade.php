@@ -97,6 +97,7 @@
            </div> --}}
 
         <!-- Submit button -->
-        <button type="submit" class="btn btn-primary mb-4 mt-5 float-end">Submit</button>
+        <button type="submit" id="submit-btn" class="btn btn-primary mb-4 mt-5 float-end">Submit</button>
+        </form>
     </div>
 </div>

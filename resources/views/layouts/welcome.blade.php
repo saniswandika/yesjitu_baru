@@ -3,13 +3,13 @@
 
 <head>
     <meta charset="utf-8">
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>DASHMIN - Bootstrap Admin Template</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
-    <!-- Favicon -->
+    <!-- Favicon -->s
     <link href="img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
@@ -29,7 +29,7 @@
 
     <!-- EXTERNAL LIBRARY -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    
+
     <style>
         .swiper {
             width: 100%;
@@ -216,16 +216,16 @@
                                     style="width: 40px; height: 40px;">
                                 <span class="d-none d-lg-inline-flex">{{ Auth::user()->name }}</span>
                             </a>
-                        
+
                         </div>
                     </div>
                 </form>
             </nav>
-            
+
             <main class="">
                 @yield('content')
             </main>
-           
+
             <!-- Navbar End -->
         </div>
         <!-- Content End -->

@@ -1,11 +1,10 @@
 <div class="col-sm-12 col-xl-12 swiper-slide" style="width: 100%;">
     <div class="bg-light rounded h-100 p-4 col-sm-12 col-md-12 col-xl-12">
-        <h6 class="mb-4">Asesmen Data Keluarga (Page 1)</h6>
+        <h6 class="mb-4">Asesmen Data Keluarga (Page 2)</h6>
 
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <!-- Text input -->
         <div class="row">
-
             <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
                 <label class="form-label" for="usia_ibu">Usia Ibu</label>
                 <input type="number" id="usia_ibu" name="usia_ibu" class="form-control"
@@ -46,19 +45,54 @@
 
             <div id="form-anak">
                 <div>
-                    <p style="font-weight: bold">Identitas Anak Ke 1</p>
+                    <p style="font-weight: bold">Identitas Anak</p>
                     <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
-                        <label class="form-label" for="anak_ke_1">Nama</label>
-                        <input type="text" id="anak_ke_1" name="anak_ke_1" class="form-control" />
+                        <label class="form-label" for="nama_anak">Nama Anak</label>
+                        <input type="text" id="nama_anak" name="nama_anak" class="form-control" />
                     </div>
-                    <button type="button" class="btn btn-primary btn-block mb-4"
+
+                    <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                        <label class="form-label" for="status_anak">Status Anak</label>
+                        <input type="text" id="status_anak" name="status_anak" class="form-control" />
+                    </div>
+
+                    <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                        <label class="form-label" for="usia_anak">Usia Anak</label>
+                        <input type="text" id="usia_anak" name="usia_anak" class="form-control" />
+                    </div>
+
+                    <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                        <label class="form-label" for="pendidikan_anak">Pendidikan Anak</label>
+                        <input type="text" id="pendidikan_anak" name="pendidikan_anak" class="form-control" />
+                    </div>
+
+                    <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                        <label class="form-label" for="pekerjaan_anak">Pekerjaan Anak</label>
+                        <input type="text" id="pekerjaan_anak" name="pekerjaan_anak" class="form-control" />
+                    </div>
+
+                    <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                        <label class="form-label" for="penghasilan_anak">Penghasilan Anak</label>
+                        <input type="text" id="penghasilan_anak" name="penghasilan_anak" class="form-control" />
+                    </div>
+
+                    <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                        <label class="form-label" for="alamat_anak">Alamat Anak</label>
+                        <input type="text" id="alamat_anak" name="alamat_anak" class="form-control" />
+                    </div>
+
+                    <div style="text-align: left" class="form-outline mb-4 col-sm-12 col-md-12 col-xl-6">
+                        <label class="form-label" for="keterangan_anak">Keterangan Anak</label>
+                        <input type="text" id="keterangan_anak" name="keterangan_anak" class="form-control" />
+                    </div>
+                    {{-- <button type="button" class="btn btn-primary btn-block mb-4"
                         onclick="tempDatabase.handleAsesmenDetailDataKeluargaAnakN('anak_ke_n', getValueByName('anak_ke_1'))">Simpan
-                        Data Anak ke-1</button>
+                        Data Anak ke-1</button> --}}
                 </div>
             </div>
-            <button type="button" id="tambah-anak" class="btn btn-primary btn-block mb-4 mt-5 float-end"
+            {{-- <button type="button" id="tambah-anak" class="btn btn-primary btn-block mb-4 mt-5 float-end"
                 onclick="handleTambahAnak()">Tambah
-                Anak</button>
+                Anak</button> --}}
 
 
             <!-- END FORM ANAK (DINAMIS)-->
@@ -128,6 +162,5 @@
         <!-- Submit button -->
         {{-- <button type="submit" class="btn btn-primary btn-block mb-4 mt-5 float-end"
                 onclick="handleSubmit(e)">Submit</button> --}}
-
     </div>
 </div>
