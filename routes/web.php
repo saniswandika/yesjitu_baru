@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AsesmenController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -15,18 +16,20 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/rumah', function () {
-    return view('dashboard');
+   return view('dashboard');
 });
 Route::get('/assesment', function () {
-    return view('assesment.index');
+   return view('assesment.index');
 });
 Route::get('/create', function () {
-    return view('assesment.create');
+   return view('assesment.create');
 });
 Route::get('/', function () {
-    return view('auth.login');
+   return view('auth.login');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::resource('asesmen', AsesmenController::class);
